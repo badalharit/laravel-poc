@@ -26,7 +26,7 @@ class ToDoController extends Controller{
         try{
             $taskName = $request->input('taskName');
             $this->toDoModel::addTodoItem($taskName);
-            return json_encode(['response'=>'success']);
+            return json_encode(['response'=>'Success']);
         }catch(Exception $e){
             return json_encode(['response'=>$e->getMessage()]);
         }
