@@ -25,12 +25,7 @@ function TodoList() {
         -1 :
         0;
   };
-  const [todoList, setTodoList] = React.useState(
-    [
-      { id: 1, taskName: "dummy text 1", isCompleted: false },
-      { id: 2, taskName: "dummy text 2", isCompleted: false },
-      { id: 3, taskName: "dummy text 3", isCompleted: true }].
-      sort(sortList));
+  const [todoList, setTodoList] = React.useState(itemListJson.sort(sortList));
 
   const [newTask, setNewTask] = React.useState("");
 
