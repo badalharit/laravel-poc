@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ToDoModel;
+use Exception;
 use Illuminate\Http\Request;
 
 class ToDoController extends Controller{
@@ -19,5 +20,16 @@ class ToDoController extends Controller{
         return view('todolist', [
             'items' => $todoItems
         ]);
+    }
+
+    public function addNewTask(Request $request){
+        try{
+            $taskName = $request->input('taskName');
+            $this->toDoModel::addTodoItem($taskName);
+            return json_encode(['response'=>'success']);
+        }catch(Exception $e){
+            return json_encode(['response'=>$e->getMessage()]);
+        }
+
     }
 }

@@ -35,7 +35,7 @@ function TodoList() {
   const handleChange = e => {
     e.preventDefault();
     setNewTask(e.target.value);
-    console.log(newTask);
+    // console.log(newTask);
   };
   React.useEffect(() => {
     const listener = event => {
@@ -71,7 +71,7 @@ function TodoList() {
         taskName: newTask,
         isCompleted: false
       };
-
+      // console.log(newTask);
       setTodoList([...todoList, task].sort(sortList));
       setNewTask("");
       inputRef.current.value = "";

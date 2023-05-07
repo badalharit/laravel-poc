@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ToDoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+/**
+ * API to hit: http://localhost/laravel-poc/public/api/addnewtask?taskName={{Hello World}}
+ */
+Route::post('/addnewtask', [ToDoController::class,'addNewTask']);
+
