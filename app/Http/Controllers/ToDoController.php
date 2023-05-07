@@ -30,6 +30,15 @@ class ToDoController extends Controller{
         }catch(Exception $e){
             return json_encode(['response'=>$e->getMessage()]);
         }
+    }
 
+    public function deleteTask(Request $request){
+        try{
+            $taskId = $request->input('taskId');
+            $this->toDoModel::deleteTodoItem($taskId);
+            return json_encode(['response'=>'Success']);
+        }catch(Exception $e){
+            return json_encode(['response'=>$e->getMessage()]);
+        }
     }
 }

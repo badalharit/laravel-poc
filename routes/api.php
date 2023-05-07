@@ -24,3 +24,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
  */
 Route::middleware('ToDoOps')->post('/addnewtask', [ToDoController::class,'addNewTask']);
 
+/**
+ * API to hit: http://localhost/laravel-poc/public/api/deletetask?taskId={"taskId"}&api_token={"api_token"}
+ */
+Route::middleware('ToDoOps')->post('/deletetask', [ToDoController::class,'deleteTask']);
+
+/**
+ * 
+ */
+// Route::middleware('ToDoOps')->post('/marktaskcompleted', [ToDoController::class,'markTaskCompleted']);
+

@@ -28,4 +28,13 @@ class ToDoModel extends Model
             throw new Exception("Error Processing Request - ".$e->getMessage(), 1);
         }
     }
+
+    static function deleteTodoItem($taskId){
+        try {
+            DB::table('tbl_todo_items')
+            ->delete(['id'=>$taskId]);
+        } catch (Exception $e) {
+            throw new Exception("Error Processing Request - ".$e->getMessage(), 1);
+        }
+    }
 }

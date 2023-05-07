@@ -35,7 +35,7 @@ function TodoList() {
   const handleChange = e => {
     e.preventDefault();
     setNewTask(e.target.value);
-    // console.log(newTask);
+    // console.log(newTask); // To Perform Add Ops
   };
   React.useEffect(() => {
     const listener = event => {
@@ -50,6 +50,7 @@ function TodoList() {
   }, []);
 
   const handleDelete = id => {
+    // console.log(id); // To Perform Delete Ops 
     setTodoList(todoList.filter(list => list.id !== id));
   };
 
