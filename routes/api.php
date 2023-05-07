@@ -20,7 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 /**
- * API to hit: http://localhost/laravel-poc/public/api/addnewtask?taskName={{Hello World}}
+ * API to hit: http://localhost/laravel-poc/public/api/addnewtask?taskName={"taskName"}&api_token={"api_token"}
  */
 Route::middleware('ToDoOps')->post('/addnewtask', [ToDoController::class,'addNewTask']);
 
