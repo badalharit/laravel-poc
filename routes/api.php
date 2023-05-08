@@ -30,7 +30,7 @@ Route::middleware('ToDoOps')->post('/addnewtask', [ToDoController::class,'addNew
 Route::middleware('ToDoOps')->post('/deletetask', [ToDoController::class,'deleteTask']);
 
 /**
- * API to hit: http://localhost/laravel-poc/public/api/marktaskcompleted?api_token={"api_token"}&taskId={"taskId"}&taskName={"taskName"}
+ * API to hit: http://localhost/laravel-poc/public/api/updateTaskName?api_token={"api_token"}&taskId={"taskId"}&taskName={"taskName"}
  */
 Route::middleware('ToDoOps')->post('/updateTaskName', [ToDoController::class,'updateTaskName']);
 
