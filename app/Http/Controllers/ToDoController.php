@@ -52,4 +52,14 @@ class ToDoController extends Controller{
             return json_encode(['response'=>$e->getMessage()]);
         }
     }
+
+    public function markTaskCompleted(Request $request){
+        try {
+            $taskId = $request->input('taskId');
+            $this->toDoModel::markTodoItemAsCompleted($taskId);
+            return json_encode(['response'=>'Success']);
+        } catch (Exception $e) {
+            return json_encode(['response'=>$e->getMessage()]);
+        }
+    }
 }

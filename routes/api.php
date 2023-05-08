@@ -34,3 +34,10 @@ Route::middleware('ToDoOps')->post('/deletetask', [ToDoController::class,'delete
  */
 Route::middleware('ToDoOps')->post('/updateTaskName', [ToDoController::class,'updateTaskName']);
 
+/**
+ * API to hit: http://localhost/laravel-poc/public/api/updateTaskName?api_token={"api_token"}&taskId={"taskId"}&taskName={"taskName"}
+ */
+Route::middleware('ToDoOps')->post('/markTaskCompleted', [ToDoController::class,'markTaskCompleted']);
+
+
+

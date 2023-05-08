@@ -47,4 +47,14 @@ class ToDoModel extends Model
             throw new Exception("Error Processing Request - ".$e->getMessage(), 1);
         }
     }
+
+    static function markTodoItemAsCompleted($taskId){
+        try{
+            DB::table('tbl_todo_items')
+            ->where('id',$taskId)
+            ->update(['isCompleted'=>1,'updated_at'=>now()]);
+        }catch (Exception $e) {
+            throw new Exception("Error Processing Request - ".$e->getMessage(), 1);
+        }
+    }
 }
