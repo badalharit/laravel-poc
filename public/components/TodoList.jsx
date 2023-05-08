@@ -31,12 +31,41 @@ function TodoList() {
 
   const inputRef = React.useRef(null);
   const btnRef = React.useRef(null);
-
+    /**
+     * Curl API service to add the item
+     * -------------------------------
+     */
+    const addNewTask = (newTask) => {
+      var apiToken = 'hhh';
+      const appToken = {
+        laravelApiToken: 'eyJpdiI6IjRBWWU4cEgwelZQSVZoem92SU9uUXc9PSIsInZhbHVlIjoiT1E3K1U1Ujl0Tng3Si9ucmtnRmJmWkl0OFVSeFNNeXRCUjZ6dmpuMHllST0iLCJtYWMiOiJhM2I5ZmVjYjU4N2RmOTI5MWZhODA2YmQyY2QyZTgwZGI1OGJiNTEyMGJhODAwZDA2MWRmNGZjODI0NDI4NjUxIiwidGFnIjoiIn0='
+      };
+      axios.post('api/get-api-token', appToken)
+        .then(response => {
+          apiToken = response.data.api_token; // assign response.data.api_token to apiToken
+          // console.log(apiToken); // This will log the updated value of apiToken
+          const data = {
+            taskName: newTask,
+            api_token: apiToken
+          };
+          axios.post('api/addnewtask', data)
+            .then(response => {
+              console.log(response.data);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    };
+    
   const handleChange = e => {
     e.preventDefault();
     setNewTask(e.target.value);
-    // console.log(newTask); // To Perform Add Ops
   };
+
   React.useEffect(() => {
     const listener = event => {
       if (event.code === "Enter" || event.code === "NumpadEnter") {
@@ -77,6 +106,7 @@ function TodoList() {
       setNewTask("");
       inputRef.current.value = "";
       inputRef.current.focus();
+      addNewTask(newTask);
     } else {
       alert(customeAlert());
     }

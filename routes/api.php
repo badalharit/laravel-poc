@@ -39,5 +39,18 @@ Route::middleware('ToDoOps')->post('/updateTaskName', [ToDoController::class,'up
  */
 Route::middleware('ToDoOps')->post('/markTaskCompleted', [ToDoController::class,'markTaskCompleted']);
 
+/**
+ * 
+ */
+Route::post('/get-api-token', function (Request $request) {
+    $apiToken = decrypt($request->input('laravelApiToken'));
+    if ($apiToken != config('app.inner_transaction_token')) {
+        abort(401, 'Unauthorized');
+    }
+    return response()->json(['api_token' => encrypt(config('app.api_token'))]);
+});
+
+
+
 
 

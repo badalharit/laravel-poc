@@ -22,7 +22,8 @@
   <!-- partial -->
   <script src='https://unpkg.com/react@18/umd/react.production.min.js'></script>
   <script src='https://unpkg.com/react-dom@18/umd/react-dom.production.min.js'></script>
-  <script src="{{ asset('components/TodoList.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.js" integrity="sha512-RjvSEaeDqPCfUVQ9kna2/2OqHz/7F04IOl1/66LmQjB/lOeAzwq7LrbTzDbz5cJzlPNJ5qteNtHR56XaJSTNWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="{{ asset('components/TodoList.jsx') }}"></script>
 
 
 </body>
