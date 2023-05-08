@@ -120,8 +120,39 @@ function TodoList() {
 // console.log(content.id+': '+inputRef.current.value);
     setTodoList(todoList.filter(list => list.id !== content.id));
   };
+
+    /**
+     * Curl API service to Delete an item
+     * -----------------------------------
+     */
+    const CompleteTask = (id) => {
+      var apiToken = '';
+      const appToken = {
+        laravelApiToken: 'eyJpdiI6IjRBWWU4cEgwelZQSVZoem92SU9uUXc9PSIsInZhbHVlIjoiT1E3K1U1Ujl0Tng3Si9ucmtnRmJmWkl0OFVSeFNNeXRCUjZ6dmpuMHllST0iLCJtYWMiOiJhM2I5ZmVjYjU4N2RmOTI5MWZhODA2YmQyY2QyZTgwZGI1OGJiNTEyMGJhODAwZDA2MWRmNGZjODI0NDI4NjUxIiwidGFnIjoiIn0='
+      };
+      axios.post('api/get-api-token', appToken)
+        .then(response => {
+          apiToken = response.data.api_token; // assign response.data.api_token to apiToken
+          // console.log(apiToken); // This will log the updated value of apiToken
+          const data = {
+            taskId: id,
+            api_token: apiToken
+          };
+          axios.post('api/markTaskCompleted', data)
+            .then(response => {
+              console.log(response.data);
+            })
+            .catch(error => {
+              console.error(error);
+            });
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    };
   const handleDone = status => {
     status.isCompleted = true;
+    CompleteTask(status.id);
     setTodoList([...todoList.sort(sortList)]);
   };
   const addTask = () => {
