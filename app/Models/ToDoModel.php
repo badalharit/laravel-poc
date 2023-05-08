@@ -37,4 +37,14 @@ class ToDoModel extends Model
             throw new Exception("Error Processing Request - ".$e->getMessage(), 1);
         }
     }
+
+    static function updateTodoItem($taskId,$updatedTaskName){
+        try{
+            DB::table('tbl_todo_items')
+            ->where('id',$taskId)
+            ->update(['taskName'=>$updatedTaskName,'updated_at'=>now()]);
+        }catch (Exception $e) {
+            throw new Exception("Error Processing Request - ".$e->getMessage(), 1);
+        }
+    }
 }

@@ -41,4 +41,15 @@ class ToDoController extends Controller{
             return json_encode(['response'=>$e->getMessage()]);
         }
     }
+
+    public function updateTaskName(Request $request){
+        try{
+            $taskId = $request->input('taskId');
+            $updatedTaskName = $request->input('taskName');
+            $this->toDoModel::updateTodoItem($taskId,$updatedTaskName);
+            return json_encode(['response'=>'Success']);
+        }catch(Exception $e){
+            return json_encode(['response'=>$e->getMessage()]);
+        }
+    }
 }
