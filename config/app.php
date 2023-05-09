@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kolkata',
 
     /*
     |--------------------------------------------------------------------------
@@ -185,4 +185,12 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    /**
+     * ---------------------------------------------------------
+     *                          API Token
+     * ---------------------------------------------------------
+     * Encypted Password To Share: eyJpdiI6IlZibDJ4dXpDV29OTUtlS3NCamxQSWc9PSIsInZhbHVlIjoiMVU1WW52R24zY04xYzJEUmpSSjF1eERtak00OWZPeHF0ZkZ1cWxoOGYyND0iLCJtYWMiOiJjZGY2ZDgxMDM1ODc5MjA5ZGZjMzhlYWMyZjljYzAwMDgzNmQzYmYxMzhmYTlhZjg2MjEyNzQwN2EwMGYyMGZlIiwidGFnIjoiIn0=
+     */
+    'api_token' => 'Kf^D1AR5x*i1',
+    'inner_transaction_token' => '%944e5KjGFs$',
 ];
