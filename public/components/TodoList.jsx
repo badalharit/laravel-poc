@@ -113,7 +113,7 @@ function TodoList() {
       });
   };
   const handleEdit = content => {
-    // setNewTask(content.taskName);
+    setNewTask(content.taskName);
     inputRef.current.value = content.taskName;
     inputRef.current.focus();
     deleteTask(content.id);
