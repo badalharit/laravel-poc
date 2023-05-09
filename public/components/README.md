@@ -1,5 +1,6 @@
+
 ---------------------------------------------------------------------------------------------------
--------------------------- Explaination of the TodoList.jsx react script --------------------------
+                                                 Explaination of the `TodoList.jsx` react script 
 ---------------------------------------------------------------------------------------------------
 
 This is a React application that renders a to-do list. 
