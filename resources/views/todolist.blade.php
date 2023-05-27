@@ -1,3 +1,6 @@
+
+<!-- {{ Session::get('name') }} -->
+
 <!DOCTYPE html>
 <html lang="en">
 
