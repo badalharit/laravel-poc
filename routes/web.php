@@ -18,4 +18,4 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/todo', [ToDoController::class,'index']);
+Route::get('/todo', [ToDoController::class,'index'])->name('ToDoHomePage');

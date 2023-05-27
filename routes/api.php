@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ToDoController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,11 @@ Route::post('/get-api-token', function (Request $request) {
     return response()->json(['api_token' => encrypt(config('app.api_token'))]);
 });
 
+
+/**
+ * API to hit: http://localhost/laravel-poc/public/api/markTaskCompleted?api_token={"api_token"}&taskId={"taskId"}
+ */
+Route::middleware('UserLogin')->post('/loginuser', [UserController::class,'index']);
 
 
 

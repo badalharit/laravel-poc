@@ -9,7 +9,7 @@
 <body>
     <div class="overlay">
         <!-- LOGN IN FORM by Omar Dsoky -->
-        <form>
+        <form method="post" action="api/loginuser">
             <!--   con = Container  for items in the form-->
             <div class="con">
                 <!--     Start  header Content  -->
@@ -27,7 +27,7 @@
                         <i class="fa fa-user-circle"></i>
                     </span>
                     <!--   user name Input-->
-                    <input class="form-input" id="txt-input" type="text" placeholder="@UserName" required>
+                    <input class="form-input" id="txt-input" type="text" placeholder="@UserName" name="username" required>
 
                     <br>
 
