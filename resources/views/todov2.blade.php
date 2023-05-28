@@ -1,5 +1,4 @@
 <html>
-
 <head>
     <title>
         ᑭᖇIᗩᒪ - Personal Productivity Tool
@@ -17,9 +16,29 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
+    <style>
+        body{
+            background: #120722; color:#ffffff;
+        }
+        select{
+            color: wheat;
+        }
+        option{
+            background-color: #120722;
+        }
+        .dataTables_wrapper .dataTables_filter input{
+            color: wheat;
+        }
+        table.dataTable thead th, table.dataTable thead td, table.dataTable.row-border tbody th, table.dataTable.row-border tbody td, table.dataTable.display tbody th, table.dataTable.display tbody td, th, td, table.dataTable.row-border tbody tr:first-child th, table.dataTable.row-border tbody tr:first-child td, table.dataTable.display tbody tr:first-child th, table.dataTable.display tbody tr:first-child td{
+            border: 1px solid floralwhite;
+            border-bottom: 1px solid floralwhite;
+            border-top: 1px solid floralwhite;
+        }
+    </style>
+
 </head>
 
-<body style="background: #120722;">
+<body>
     <section class="ftco-section">
         <div class="container">
             <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
@@ -29,8 +48,6 @@
                         <p class="mb-0 d-flex">
                             <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-user"><i class="sr-only">Profile</i></span></a>
                             <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-sign-out"><i class="sr-only">Sign Out</i></span></a>
-                            <!-- <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-		    			<a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a> -->
                         </p>
                     </div>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,11 +76,39 @@
                 </div>
             </div>
             <!-- END nav -->
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- Table Code Start -->
+            <table id="toDoTasks" class="display" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Activity</th>
+                        <th>Actions</th>
+                    </tr>
+                <tbody>
+                    <?php $i = 1; ?>
+                        @foreach ($items as $items)
+                            <tr>
+                            <td>{{ $i }}</td>
+                                <td>{{ $items['taskName'] }}</td>
+                                <td>
+                                    <div class="social-media order-lg-last">
+                                        <p class="mb-0 d-flex">
+                                            <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-check"><i class="sr-only">Completed</i></span></a>
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <?php $i += 1; ?>
+                        @endforeach
+                    </thead>
+            </table>
+            <!-- Table Code End -->
         </div>
     </section>
     <script>
         $(document).ready(function() {
-            // $('#example').DataTable();
+            $('#toDoTasks').DataTable();
         });
     </script>
 
