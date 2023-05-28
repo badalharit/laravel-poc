@@ -22,6 +22,14 @@ class ToDoController extends Controller{
         ]);
     }
 
+    public function todov2(){
+        $todoItems = $this->toDoModel::getTodoItems();
+        
+        return view('todov2', [
+            'items' => $todoItems
+        ]);
+    }
+
     public function addNewTask(Request $request){
         try{
             $taskName = $request->input('taskName');

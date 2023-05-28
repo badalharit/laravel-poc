@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/todo', [ToDoController::class,'index']);
+
+Route::get('/todov2', [ToDoController::class,'todov2']);
