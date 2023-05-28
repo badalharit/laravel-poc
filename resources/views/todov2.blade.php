@@ -90,7 +90,11 @@
                         @foreach ($items as $items)
                             <tr>
                             <td>{{ $i }}</td>
-                                <td>{{ $items['taskName'] }}</td>
+                                @if ($items['isCompleted'])
+                                    <td><s>{{ $items['taskName'] }}</s></td>
+                                @else
+                                    <td>{{ $items['taskName'] }}</td>
+                                @endif
                                 <td>
                                     <div class="social-media order-lg-last">
                                         <p class="mb-0 d-flex">
